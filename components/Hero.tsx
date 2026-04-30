@@ -3,165 +3,135 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const tags = [
-  "UI/UX Design",
-  "Front-end Dev",
-  "Mobile Apps",
-  "Backend",
-  "QA",
-  "Digital Marketing",
+const stats = [
+  { value: "100+", label: "Clients served" },
+  { value: "50+", label: "Projects shipped" },
+  { value: "8+", label: "Years of craft" },
+  { value: "6", label: "Disciplines" },
+];
+
+const projects = [
+  { name: "Ather Energy", cat: "Automotive", img: "https://sketchbrahma.com/projects/ather.webp" },
+  { name: "Perfios", cat: "Fintech", img: "https://sketchbrahma.com/projects/perfios.webp" },
+  { name: "Chaos Genius", cat: "DeepTech", img: "https://sketchbrahma.com/projects/chaos.webp" },
 ];
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col justify-center px-6 pt-24 pb-16 max-w-6xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section className="relative min-h-screen bg-[#0D0D0D] flex flex-col overflow-hidden">
+      {/* Subtle grid texture */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`,
+          backgroundSize: "60px 60px",
+        }}
+      />
+
+      {/* Main content */}
+      <div className="relative flex-1 flex items-center max-w-7xl mx-auto w-full px-6 pt-32 pb-28 gap-16">
         {/* Left — copy */}
-        <div>
+        <div className="flex-1 max-w-2xl">
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center gap-2 mb-8"
+            className="flex items-center gap-2 mb-8"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-            <span
-              className="text-xs text-stone-500 tracking-widest uppercase"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
-            >
-              Design studio · Bengaluru
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+            <span style={{ fontFamily: "var(--font-dm-sans)" }} className="text-xs text-white/40 tracking-widest uppercase">
+              Design Studio · Bengaluru, India
             </span>
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             style={{ fontFamily: "var(--font-syne)" }}
-            className="text-[2.5rem] sm:text-[3rem] lg:text-[3.25rem] font-bold leading-[1.1] tracking-tight text-stone-900 mb-6"
+            className="text-[3rem] sm:text-[3.75rem] lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight text-white mb-6"
           >
-            Design that
-            <br />
-            <em className="not-italic text-stone-400">moves people.</em>
+            We design<br />
+            experiences<br />
+            <span className="text-white/30">people love.</span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             style={{ fontFamily: "var(--font-dm-sans)" }}
-            className="text-base text-stone-500 leading-relaxed max-w-md mb-10"
+            className="text-base text-white/50 leading-relaxed max-w-md mb-10"
           >
-            We craft human-centered digital experiences — from pixel-perfect
-            interfaces to robust front-end systems. Trusted by 100+ teams
-            across India and beyond.
+            UI/UX design, front-end development, and mobile apps — crafted with intention.
+            Trusted by teams at Flipkart, Ather, Razorpay, and 100+ others.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.55 }}
             className="flex flex-wrap gap-3"
           >
             <Link
               href="#work"
-              className="px-5 py-2.5 bg-stone-900 text-[#f7f6f3] text-sm rounded-full hover:bg-stone-700 transition-colors duration-200"
               style={{ fontFamily: "var(--font-dm-sans)" }}
+              className="px-6 py-3 bg-white text-[#0D0D0D] text-sm font-medium rounded-full hover:bg-white/90 transition-all duration-200 hover:scale-[1.02]"
             >
               View our work
             </Link>
             <Link
               href="#contact"
-              className="px-5 py-2.5 border border-stone-300 text-stone-700 text-sm rounded-full hover:border-stone-500 hover:text-stone-900 transition-colors duration-200"
               style={{ fontFamily: "var(--font-dm-sans)" }}
+              className="px-6 py-3 border border-white/20 text-white/70 text-sm rounded-full hover:border-white/40 hover:text-white transition-all duration-200"
             >
               Start a project
             </Link>
           </motion.div>
         </div>
 
-        {/* Right — decorative grid of service tags */}
-        <motion.div
-          initial={{ opacity: 0, x: 24 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="hidden lg:block"
-        >
-          <div className="relative">
-            {/* Bento-style card grid */}
-            <div className="grid grid-cols-2 gap-3">
-              {/* Tall card */}
-              <div className="row-span-2 bg-stone-100 rounded-2xl p-6 flex flex-col justify-between min-h-[260px] border border-stone-200/60">
-                <div>
-                  <div className="w-8 h-8 bg-stone-900 rounded-lg mb-4 flex items-center justify-center">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M2 2h5v5H2zM9 2h5v5H9zM2 9h5v5H2zM9 9h5v5H9z" fill="#f7f6f3"/>
-                    </svg>
-                  </div>
-                  <p style={{ fontFamily: "var(--font-syne)" }} className="text-lg font-semibold text-stone-900 leading-snug">
-                    Experience Design
-                  </p>
-                  <p style={{ fontFamily: "var(--font-dm-sans)" }} className="text-xs text-stone-500 mt-2 leading-relaxed">
-                    Intuitive interfaces crafted around real user behaviour
-                  </p>
-                </div>
-                <div className="flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-stone-400" />
-                  <span style={{ fontFamily: "var(--font-dm-sans)" }} className="text-xs text-stone-400">UX · UI · Research</span>
-                </div>
+        {/* Right — stacked project cards */}
+        <div className="hidden lg:block flex-1 relative h-[520px]">
+          {projects.map((p, i) => (
+            <motion.div
+              key={p.name}
+              initial={{ opacity: 0, y: 30, rotate: i === 0 ? -3 : i === 1 ? 1 : 4 }}
+              animate={{ opacity: 1, y: 0, rotate: i === 0 ? -3 : i === 1 ? 1 : 4 }}
+              transition={{ duration: 0.8, delay: 0.3 + i * 0.15, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ scale: 1.02, rotate: 0, zIndex: 10 }}
+              className="absolute rounded-2xl overflow-hidden border border-white/10 shadow-2xl cursor-pointer"
+              style={{
+                width: 300,
+                height: 200,
+                top: i * 80 + (i === 0 ? 60 : i === 1 ? 20 : 0),
+                left: i === 0 ? "10%" : i === 1 ? "25%" : "5%",
+                zIndex: 3 - i,
+              }}
+            >
+              <img src={p.img} alt={p.name} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-black/30" />
+              <div className="absolute bottom-3 left-3">
+                <p style={{ fontFamily: "var(--font-syne)" }} className="text-white text-xs font-semibold">{p.name}</p>
+                <p style={{ fontFamily: "var(--font-dm-sans)" }} className="text-white/50 text-[10px]">{p.cat}</p>
               </div>
-
-              {/* Short card top-right */}
-              <div className="bg-stone-900 rounded-2xl p-6 flex flex-col justify-between min-h-[120px] border border-stone-800">
-                <p style={{ fontFamily: "var(--font-syne)" }} className="text-base font-semibold text-[#f7f6f3] leading-snug">
-                  Front-end Development
-                </p>
-                <p style={{ fontFamily: "var(--font-dm-sans)" }} className="text-xs text-stone-400 mt-2">React · Next.js · Vue</p>
-              </div>
-
-              {/* Short card bottom-right */}
-              <div className="bg-stone-100 rounded-2xl p-6 flex flex-col justify-between min-h-[120px] border border-stone-200/60">
-                <p style={{ fontFamily: "var(--font-syne)" }} className="text-base font-semibold text-stone-900 leading-snug">
-                  Mobile Development
-                </p>
-                <p style={{ fontFamily: "var(--font-dm-sans)" }} className="text-xs text-stone-500 mt-2">iOS · Android</p>
-              </div>
-            </div>
-
-            {/* Stats row */}
-            <div className="grid grid-cols-3 gap-3 mt-3">
-              {[
-                { num: "100+", label: "Clients" },
-                { num: "8+", label: "Years" },
-                { num: "50+", label: "Projects" },
-              ].map(({ num, label }) => (
-                <div
-                  key={label}
-                  className="bg-stone-100 rounded-2xl p-4 text-center border border-stone-200/60"
-                >
-                  <p style={{ fontFamily: "var(--font-syne)" }} className="text-xl font-bold text-stone-900">{num}</p>
-                  <p style={{ fontFamily: "var(--font-dm-sans)" }} className="text-xs text-stone-500 mt-0.5">{label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Stats bar */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.5 }}
-        className="mt-16 flex items-center gap-3"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+        className="relative border-t border-white/8 max-w-7xl mx-auto w-full px-6 py-6 grid grid-cols-2 md:grid-cols-4 gap-6"
       >
-        <div className="h-px flex-1 bg-stone-200 max-w-[60px]" />
-        <span
-          style={{ fontFamily: "var(--font-dm-sans)" }}
-          className="text-xs text-stone-400 tracking-widest uppercase"
-        >
-          Scroll to explore
-        </span>
+        {stats.map((s, i) => (
+          <div key={s.label} className={`flex flex-col gap-1 ${i > 0 ? "md:border-l md:border-white/8 md:pl-6" : ""}`}>
+            <span style={{ fontFamily: "var(--font-syne)" }} className="text-2xl font-bold text-white">{s.value}</span>
+            <span style={{ fontFamily: "var(--font-dm-sans)" }} className="text-xs text-white/40">{s.label}</span>
+          </div>
+        ))}
       </motion.div>
     </section>
   );

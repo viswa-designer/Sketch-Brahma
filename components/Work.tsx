@@ -1,125 +1,141 @@
 import FadeIn from "./FadeIn";
 
+const BASE_IMG = "https://sketchbrahma.com/projects/";
+const BASE_LOGO = "https://sketchbrahma.com/coloredimages/";
+
 const projects = [
   {
     client: "Ather Energy",
-    category: "Automotive · Web",
-    description:
-      "A redesigned marketing website and owner portal for India's leading electric scooter brand — clean, performance-focused, and on-brand.",
-    tags: ["UI Design", "Front-end"],
-    accent: "bg-stone-900",
-    textColor: "text-[#f7f6f3]",
-    secondaryText: "text-stone-400",
+    category: "Automotive",
+    year: "2023",
+    description: "We collaborated on the front-end development of their marketing website, customer portal, and Ather Space — creating a seamless, performant experience befitting a category-defining EV brand.",
+    tags: ["UI/UX Design", "React", "Next.js"],
+    img: `${BASE_IMG}ather.webp`,
+    logo: `${BASE_LOGO}ather.svg`,
+    dark: true,
   },
   {
     client: "Perfios",
-    category: "Fintech · SaaS",
-    description:
-      "Minimalist design system and dashboard UI for a financial data platform, balancing data density with clarity.",
-    tags: ["UX Research", "Design System"],
-    accent: "bg-stone-100",
-    textColor: "text-stone-900",
-    secondaryText: "text-stone-500",
+    category: "Fintech",
+    year: "2022",
+    description: "Designed and developed a minimalistic product that empowered users to track, transfer, and share financial data — with powerful encryption built in.",
+    tags: ["UI/UX", "React", "React Native"],
+    img: `${BASE_IMG}perfios.webp`,
+    logo: `${BASE_LOGO}perfios.svg`,
+    dark: false,
   },
   {
     client: "Chaos Genius",
     category: "DeepTech · Analytics",
-    description:
-      "Intuitive observability platform for business intelligence — making complex anomaly detection feel approachable.",
-    tags: ["Product Design", "React"],
-    accent: "bg-stone-100",
-    textColor: "text-stone-900",
-    secondaryText: "text-stone-500",
+    year: "2022",
+    description: "Introduced compelling real-time data visualisation to an open-source business observability platform for anomaly detection — making complex intelligence feel approachable.",
+    tags: ["Product Design", "React JS"],
+    img: `${BASE_IMG}chaos.webp`,
+    logo: `${BASE_LOGO}chaos.svg`,
+    dark: false,
   },
   {
     client: "Wisedrive",
     category: "Fintech · Consumer",
-    description:
-      "An education-first design for a vehicle warranty service, guiding first-time buyers through complex policies with ease.",
-    tags: ["UI Design", "Mobile"],
-    accent: "bg-stone-900",
-    textColor: "text-[#f7f6f3]",
-    secondaryText: "text-stone-400",
+    year: "2023",
+    description: "Designed a conversion-focused website for India's first used car extended warranty service — educating first-time buyers with clarity and confidence.",
+    tags: ["UI/UX Design", "React JS"],
+    img: `${BASE_IMG}wisedrive.webp`,
+    logo: `${BASE_LOGO}wisedrive.svg`,
+    dark: true,
+  },
+  {
+    client: "Quizy",
+    category: "Gaming",
+    year: "2021",
+    description: "Designed an interactive, fun, and engaging experience for an online quiz gaming app — complete with micro-animations and a full UI overhaul.",
+    tags: ["UI/UX Design", "Motion"],
+    img: `${BASE_IMG}quizy.webp`,
+    logo: `${BASE_LOGO}quizy.svg`,
+    dark: false,
   },
 ];
 
 export default function Work() {
   return (
-    <section id="work" className="py-24 bg-stone-100 border-y border-stone-200">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="work" className="py-28 bg-white border-t border-[#E4E3DF]">
+      <div className="max-w-7xl mx-auto px-6">
         <FadeIn>
-          <div className="mb-16">
-            <p
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+              <p style={{ fontFamily: "var(--font-dm-sans)" }} className="text-xs text-[#999] tracking-widest uppercase mb-3">
+                Selected work
+              </p>
+              <h2 style={{ fontFamily: "var(--font-syne)" }} className="text-[2rem] sm:text-[2.5rem] font-bold text-[#111] tracking-tight leading-tight">
+                Built for real businesses,<br />shipped with care.
+              </h2>
+            </div>
+            <a
+              href="#contact"
               style={{ fontFamily: "var(--font-dm-sans)" }}
-              className="text-xs text-stone-400 tracking-widest uppercase mb-3"
+              className="text-sm text-[#111] border-b border-[#111] pb-0.5 hover:opacity-60 transition-opacity self-end"
             >
-              Selected work
-            </p>
-            <h2
-              style={{ fontFamily: "var(--font-syne)" }}
-              className="text-[1.75rem] sm:text-[2rem] font-bold text-stone-900 tracking-tight"
-            >
-              Built for real businesses.
-            </h2>
+              Start a project →
+            </a>
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {projects.map((project, i) => (
-            <FadeIn key={project.client} delay={i * 0.1}>
+        <div className="flex flex-col gap-5">
+          {projects.map((p, i) => (
+            <FadeIn key={p.client} delay={i * 0.08}>
               <div
-                className={`${project.accent} rounded-2xl p-8 flex flex-col justify-between min-h-[280px] border border-stone-200/20 hover:scale-[1.01] transition-transform duration-300 cursor-pointer`}
+                className={`group relative rounded-3xl overflow-hidden flex flex-col md:flex-row ${
+                  p.dark ? "bg-[#111]" : "bg-[#F8F7F4] border border-[#E4E3DF]"
+                } hover:scale-[1.005] transition-transform duration-500`}
               >
-                <div>
-                  <p
-                    style={{ fontFamily: "var(--font-dm-sans)" }}
-                    className={`text-xs ${project.secondaryText} tracking-widest uppercase mb-4`}
-                  >
-                    {project.category}
-                  </p>
-                  <h3
-                    style={{ fontFamily: "var(--font-syne)" }}
-                    className={`text-xl font-bold ${project.textColor} mb-3 tracking-tight`}
-                  >
-                    {project.client}
-                  </h3>
-                  <p
-                    style={{ fontFamily: "var(--font-dm-sans)" }}
-                    className={`text-sm ${project.secondaryText} leading-relaxed`}
-                  >
-                    {project.description}
-                  </p>
+                {/* Image */}
+                <div className="w-full md:w-1/2 aspect-[16/9] md:aspect-auto overflow-hidden">
+                  <img
+                    src={p.img}
+                    alt={p.client}
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                  />
                 </div>
-                <div className="flex flex-wrap gap-2 mt-6">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      style={{ fontFamily: "var(--font-dm-sans)" }}
-                      className={`text-xs px-2.5 py-1 rounded-full border ${
-                        project.accent === "bg-stone-900"
-                          ? "border-stone-700 text-stone-400"
-                          : "border-stone-300 text-stone-500"
-                      }`}
-                    >
-                      {tag}
-                    </span>
-                  ))}
+
+                {/* Info */}
+                <div className="flex-1 p-8 md:p-10 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <img src={p.logo} alt={p.client} className="h-5 object-contain opacity-80" />
+                      <span style={{ fontFamily: "var(--font-dm-sans)" }} className={`text-xs tracking-widest uppercase ${p.dark ? "text-white/30" : "text-[#999]"}`}>
+                        {p.category}
+                      </span>
+                      <span style={{ fontFamily: "var(--font-dm-sans)" }} className={`text-xs ml-auto ${p.dark ? "text-white/20" : "text-[#C0BEBC]"}`}>
+                        {p.year}
+                      </span>
+                    </div>
+                    <h3 style={{ fontFamily: "var(--font-syne)" }} className={`text-2xl font-bold tracking-tight mb-4 ${p.dark ? "text-white" : "text-[#111]"}`}>
+                      {p.client}
+                    </h3>
+                    <p style={{ fontFamily: "var(--font-dm-sans)" }} className={`text-sm leading-relaxed ${p.dark ? "text-white/50" : "text-[#6B6B6B]"}`}>
+                      {p.description}
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mt-8">
+                    {p.tags.map((t) => (
+                      <span
+                        key={t}
+                        style={{ fontFamily: "var(--font-dm-sans)" }}
+                        className={`text-xs px-3 py-1 rounded-full border ${
+                          p.dark
+                            ? "border-white/15 text-white/40"
+                            : "border-[#E4E3DF] text-[#6B6B6B]"
+                        }`}
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </FadeIn>
           ))}
         </div>
-
-        <FadeIn delay={0.3}>
-          <div className="mt-10 flex justify-center">
-            <button
-              style={{ fontFamily: "var(--font-dm-sans)" }}
-              className="text-sm text-stone-500 hover:text-stone-900 transition-colors border-b border-stone-300 hover:border-stone-700 pb-0.5"
-            >
-              View all projects →
-            </button>
-          </div>
-        </FadeIn>
       </div>
     </section>
   );

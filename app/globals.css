@@ -3,31 +3,33 @@
 :root {
   --font-heading: var(--font-syne);
   --font-body: var(--font-dm-sans);
+  --bg: #F8F7F4;
+  --bg-dark: #0D0D0D;
+  --text: #111111;
+  --text-muted: #6B6B6B;
+  --border: #E4E3DF;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background-color: #f7f6f3;
-  color: #111111;
+  background-color: var(--bg);
+  color: var(--text);
   font-family: var(--font-dm-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-syne), system-ui, sans-serif;
 }
 
-::selection {
-  background: #111111;
-  color: #f7f6f3;
-}
+::selection { background: #111; color: #F8F7F4; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #F8F7F4; }
+::-webkit-scrollbar-thumb { background: #C0BEBC; border-radius: 4px; }

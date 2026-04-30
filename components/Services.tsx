@@ -1,117 +1,120 @@
 import FadeIn from "./FadeIn";
 
+const BASE = "https://sketchbrahma.com/home/";
+
 const services = [
   {
     number: "01",
     title: "Experience Design",
-    description:
-      "User research, wireframing, prototyping, and polished UI that turns complexity into clarity.",
-    tags: ["UX Research", "UI Design", "Prototyping"],
+    description: "Designing elevated experiences and intuitive interfaces — from research and wireframes to polished, pixel-perfect UI that your users actually enjoy.",
+    tags: ["UX Research", "UI Design", "Prototyping", "Figma"],
+    img: `${BASE}experienceDesignGif.gif`,
+    size: "lg",
   },
   {
     number: "02",
     title: "Front-end Development",
-    description:
-      "Pixel-perfect implementation with clean code, optimal performance, and seamless API integration.",
-    tags: ["React", "Next.js", "Vue"],
+    description: "Developing optimal user experiences with clean code, streamlined API integration, and rock-solid performance.",
+    tags: ["React", "Next.js", "Angular"],
+    img: `${BASE}frontEndGif.gif`,
+    size: "sm",
   },
   {
     number: "03",
     title: "Mobile Development",
-    description:
-      "Native and cross-platform apps for iOS and Android that feel right in your hand.",
+    description: "Building robust, scalable mobile applications for both iOS and Android that feel native to the platform.",
     tags: ["iOS", "Android", "React Native"],
+    img: `${BASE}mobileGif.gif`,
+    size: "sm",
   },
   {
     number: "04",
     title: "Backend Development",
-    description:
-      "Resilient, scalable server architecture built for the demands of modern products.",
+    description: "Constructing resilient, adaptable backend architecture built to scale with your product.",
     tags: ["Node.js", "APIs", "Cloud"],
+    img: `${BASE}backendGif.gif`,
+    size: "sm",
   },
   {
     number: "05",
     title: "QA & Testing",
-    description:
-      "End-to-end quality assurance so your product ships solid and stays solid.",
+    description: "Assessing every layer of your software — so you ship with confidence and sleep easy.",
     tags: ["Automation", "Manual QA", "Performance"],
+    img: `${BASE}qualityGif.gif`,
+    size: "sm",
   },
   {
     number: "06",
     title: "Digital Marketing",
-    description:
-      "Brand storytelling, visual content, and campaigns that connect design to growth.",
+    description: "Promoting your brand through visually compelling content and campaigns that connect design to growth.",
     tags: ["Strategy", "Content", "Analytics"],
+    img: `${BASE}marketingGif.gif`,
+    size: "sm",
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 max-w-6xl mx-auto px-6">
-      <FadeIn>
-        <div className="flex items-end justify-between mb-16 border-b border-stone-200 pb-8">
-          <div>
-            <p
-              style={{ fontFamily: "var(--font-dm-sans)" }}
-              className="text-xs text-stone-400 tracking-widest uppercase mb-3"
-            >
-              What we do
-            </p>
-            <h2
-              style={{ fontFamily: "var(--font-syne)" }}
-              className="text-[1.75rem] sm:text-[2rem] font-bold text-stone-900 tracking-tight"
-            >
-              End-to-end digital
-              <br />
-              craft, under one roof.
-            </h2>
-          </div>
-          <p
-            style={{ fontFamily: "var(--font-dm-sans)" }}
-            className="hidden md:block text-sm text-stone-400 max-w-xs text-right leading-relaxed"
-          >
-            From early-stage concept to shipped product, we cover every layer
-            of the digital stack.
-          </p>
-        </div>
-      </FadeIn>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-stone-200">
-        {services.map((service, i) => (
-          <FadeIn key={service.number} delay={i * 0.07}>
-            <div className="bg-[#f7f6f3] p-8 hover:bg-stone-100 transition-colors duration-300 group h-full">
-              <span
-                style={{ fontFamily: "var(--font-syne)" }}
-                className="text-xs text-stone-300 font-semibold tracking-widest"
-              >
-                {service.number}
-              </span>
-              <h3
-                style={{ fontFamily: "var(--font-syne)" }}
-                className="text-base font-semibold text-stone-900 mt-3 mb-3 tracking-tight group-hover:text-stone-700 transition-colors"
-              >
-                {service.title}
-              </h3>
-              <p
-                style={{ fontFamily: "var(--font-dm-sans)" }}
-                className="text-sm text-stone-500 leading-relaxed mb-5"
-              >
-                {service.description}
+    <section id="services" className="py-28 bg-[#F8F7F4]">
+      <div className="max-w-7xl mx-auto px-6">
+        <FadeIn>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+              <p style={{ fontFamily: "var(--font-dm-sans)" }} className="text-xs text-[#999] tracking-widest uppercase mb-3">
+                What we do
               </p>
-              <div className="flex flex-wrap gap-1.5">
-                {service.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    style={{ fontFamily: "var(--font-dm-sans)" }}
-                    className="text-xs px-2 py-1 bg-stone-200 text-stone-500 rounded-full"
-                  >
-                    {tag}
-                  </span>
+              <h2 style={{ fontFamily: "var(--font-syne)" }} className="text-[2rem] sm:text-[2.5rem] font-bold text-[#111] tracking-tight leading-tight">
+                End-to-end digital craft,<br />under one roof.
+              </h2>
+            </div>
+            <p style={{ fontFamily: "var(--font-dm-sans)" }} className="text-sm text-[#6B6B6B] max-w-xs leading-relaxed">
+              From concept to code — we cover every layer of the stack so your product ships complete.
+            </p>
+          </div>
+        </FadeIn>
+
+        {/* Bento grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Large card - Experience Design */}
+          <FadeIn delay={0} className="md:col-span-2 md:row-span-2">
+            <div className="group relative bg-[#111] rounded-3xl overflow-hidden h-full min-h-[380px] flex flex-col justify-between p-8 hover:shadow-2xl transition-all duration-500">
+              <div className="relative z-10">
+                <span style={{ fontFamily: "var(--font-syne)" }} className="text-xs text-white/30 font-semibold tracking-widest">01</span>
+                <h3 style={{ fontFamily: "var(--font-syne)" }} className="text-2xl font-bold text-white mt-3 mb-3 tracking-tight">{services[0].title}</h3>
+                <p style={{ fontFamily: "var(--font-dm-sans)" }} className="text-sm text-white/50 leading-relaxed max-w-sm">{services[0].description}</p>
+              </div>
+              <div className="relative z-10 flex flex-wrap gap-2 mt-6">
+                {services[0].tags.map((t) => (
+                  <span key={t} style={{ fontFamily: "var(--font-dm-sans)" }} className="text-xs px-3 py-1 bg-white/10 text-white/60 rounded-full border border-white/10">{t}</span>
                 ))}
+              </div>
+              <div className="absolute right-0 bottom-0 w-48 h-48 opacity-20 group-hover:opacity-30 transition-opacity">
+                <img src={services[0].img} alt="" className="w-full h-full object-contain" />
               </div>
             </div>
           </FadeIn>
-        ))}
+
+          {/* Small cards */}
+          {services.slice(1).map((s, i) => (
+            <FadeIn key={s.number} delay={(i + 1) * 0.08}>
+              <div className="group relative bg-white rounded-3xl overflow-hidden p-7 border border-[#E4E3DF] hover:border-[#C0BEBC] hover:shadow-lg transition-all duration-300 min-h-[170px] flex flex-col justify-between">
+                <div>
+                  <div className="flex items-start justify-between mb-3">
+                    <span style={{ fontFamily: "var(--font-syne)" }} className="text-xs text-[#C0BEBC] font-semibold tracking-widest">{s.number}</span>
+                    <img src={s.img} alt="" className="w-8 h-8 object-contain opacity-60 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                  <h3 style={{ fontFamily: "var(--font-syne)" }} className="text-base font-bold text-[#111] mb-2 tracking-tight">{s.title}</h3>
+                  <p style={{ fontFamily: "var(--font-dm-sans)" }} className="text-xs text-[#6B6B6B] leading-relaxed line-clamp-2">{s.description}</p>
+                </div>
+                <div className="flex flex-wrap gap-1.5 mt-4">
+                  {s.tags.slice(0, 2).map((t) => (
+                    <span key={t} style={{ fontFamily: "var(--font-dm-sans)" }} className="text-[11px] px-2 py-0.5 bg-[#F2F1EE] text-[#6B6B6B] rounded-full">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   );

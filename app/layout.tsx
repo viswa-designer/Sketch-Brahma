@@ -15,16 +15,13 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Sketch Brahma — UI/UX Design & Development",
+  title: "Sketch Brahma — UI/UX Design & Development Studio",
   description:
-    "We craft human-centered digital experiences that are effective, efficient, and enjoyable.",
+    "We design and develop human-centered digital experiences that are effective, efficient, and enjoyable. Trusted by 100+ clients including Flipkart, Ather, Razorpay.",
+  keywords: "UI UX design, front-end development, mobile app design, Bengaluru design studio",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${syne.variable} ${dmSans.variable}`}>
       <body>{children}</body>
